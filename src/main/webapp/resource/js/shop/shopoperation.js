@@ -7,6 +7,7 @@ $(function() {
 	// 由于店铺注册和编辑使用的是同一个页面，
 	// 该标识符用来标明本次是添加还是编辑操作
 	//var isEdit = shopId ? true : false;
+    var isEdit = false;
 	// 用于店铺注册时候的店铺类别以及区域列表的初始化的URL
 	var initUrl = '/shopadmin/getshopinitinfo';
 	// 注册店铺的URL

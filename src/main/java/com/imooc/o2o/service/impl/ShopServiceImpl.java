@@ -57,7 +57,7 @@ public class ShopServiceImpl implements ShopService {
             throw new RuntimeException("addShop error" + e.getMessage());
         }
 
-        return new ShopExecution(ShopStateEnum.CHECK);
+        return new ShopExecution(ShopStateEnum.CHECK,shop);
     }
 
     private void addShopImg(Shop shop, InputStream shopImgInputStream,String fileName) {
