@@ -40,7 +40,7 @@
         s.create_time,
         s.last_edit_time,
         s.enable_status,
-        s.advice
+        s.advice,
         a.area_id,
         a.area_name,
         sc.shop_category_id,
@@ -50,7 +50,7 @@
         and
         s.shop_category_id=sc.shop_category_id
         and
-        a.shop_id=#{shopId}
+        s.shop_id=#{shopId}
     </select>
 
     <insert id="insertShop" useGeneratedKeys="true" keyProperty="shopId"

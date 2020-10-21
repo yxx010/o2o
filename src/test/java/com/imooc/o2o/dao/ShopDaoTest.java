@@ -17,6 +17,12 @@ public class ShopDaoTest extends BaseTest {
     @Autowired
     private ShopDao shopDao;
     @Test
+    public void testQueryShop(){
+        Shop shop=new Shop();
+        shop=shopDao.queryByShopId(1);
+        System.out.println(shop);
+    }
+    @Test
     //@Ignore //不执行
     public void testInsertShop(){
         Shop shop=new Shop();
