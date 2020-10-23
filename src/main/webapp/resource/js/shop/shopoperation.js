@@ -1,28 +1,27 @@
 /**
- * 
+ *
  */
 $(function() {
 	// 从URL里获取shopId参数的值
-	//var shopId = getQueryString('shopId');
+	var shopId = getQueryString('shopId');
 	// 由于店铺注册和编辑使用的是同一个页面，
 	// 该标识符用来标明本次是添加还是编辑操作
-	//var isEdit = shopId ? true : false;
-    var isEdit = false;
+	var isEdit = shopId ? true : false;
 	// 用于店铺注册时候的店铺类别以及区域列表的初始化的URL
 	var initUrl = '/shopadmin/getshopinitinfo';
 	// 注册店铺的URL
 	var registerShopUrl = '/shopadmin/registershop';
 	// 编辑店铺前需要获取店铺信息，这里为获取当前店铺信息的URL
-	//var shopInfoUrl = "/shopadmin/getshopbyid?shopId=" + shopId;
+	var shopInfoUrl = "/shopadmin/getshopbyid?shopId=" + shopId;
 	// 编辑店铺信息的URL
 	var editShopUrl = '/shopadmin/modifyshop';
 	//alert("执行脚本了");
 	// 判断是编辑操作还是注册操作
-	//if (!isEdit) {
+	if (!isEdit) {
 		getShopInitInfo();
-	//} else {
-		//getShopInfo(shopId);
-	//}
+	} else {
+		getShopInfo(shopId);
+	}
 	// 通过店铺Id获取店铺信息
 	function getShopInfo(shopId) {
 		$.getJSON(shopInfoUrl, function(data) {

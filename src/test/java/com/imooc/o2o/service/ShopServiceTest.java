@@ -15,12 +15,26 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class ShopServiceTest extends BaseTest {
     @Autowired
     private ShopService shopService;
+    @Test
+    public void testQueryShopListAndCount(){
+        Shop shopCondition=new Shop();
+        ShopCategory sc=new ShopCategory();
+        sc.setShopCategoryId(1L);
+        shopCondition.setShopCategory(sc);
+        ShopExecution se= shopService.getShopList(shopCondition,1,20);
+        System.out.println("店铺列表第1页数量："+se.getShopList().size());
+        System.out.println("该分类店铺总数："+se.getCount());
+        se= shopService.getShopList(shopCondition,2,20);
+        System.out.println("店铺列表第2页数量："+se.getShopList().size());
+
+    }
     @Test
     public void testAddShop(){
         Shop shop=new Shop();
@@ -50,5 +64,15 @@ public class ShopServiceTest extends BaseTest {
         }
         ShopExecution se=shopService.addShop(shop,inputStream,shopImg.getName());
         assertEquals(ShopStateEnum.CHECK.getState(),se.getState());
+    }
+    @Test
+    public void testModifyShop() throws FileNotFoundException {
+        Shop shop=new Shop();
+        shop.setShopId(1L);
+        shop.setShopName("店铺名称修改");
+        File shopImg=new File("/Users/yangxiaoxiao/Desktop/1new.jpg");
+        InputStream is=new FileInputStream(shopImg);
+        ShopExecution shopExecution=shopService.modifyShop(shop,is,"1new.jpg");
+        System.out.println(shopExecution.getShop().getShopImg());
     }
 }

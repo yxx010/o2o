@@ -8,6 +8,7 @@ public class PathUtil {
         if(os.toLowerCase().startsWith("win")){
             basePath="D:/projectdev/image/";
         }else{
+            //上传图片的地址
             basePath="/Users/yangxiaoxiao/Desktop/image/";
         }
         basePath=basePath.replace("/",seperator);

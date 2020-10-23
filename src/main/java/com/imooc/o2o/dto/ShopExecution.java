@@ -18,6 +18,9 @@ public class ShopExecution {
     private Shop shop;
 
     private List<Shop> shopList;
+    public ShopExecution(){
+
+    }
     //店铺操作失败时使用的构造器
     public ShopExecution(ShopStateEnum stateEnum){
         this.state=stateEnum.getState();

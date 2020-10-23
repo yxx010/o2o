@@ -103,4 +103,23 @@ public class ImageUtil {
                 .watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
                 .outputQuality(0.8f).toFile("/Users/yangxiaoxiao/Desktop/1new.jpg");
     }
+
+    /**
+     * storePath的路径是文件路径还是目录
+     * @param storePath
+     */
+    public static void deleteFileOrPath(String storePath){
+        File fileOrPath=new File(PathUtil.getImgBasePath()+storePath);
+        if(fileOrPath.exists()){
+            if(fileOrPath.isDirectory()){
+                File files[]=fileOrPath.listFiles();
+                for (int i = 0; i < files.length; i++) {
+                    //删除文件
+                    files[i].delete();
+                }
+            }
+            //删除目录
+            fileOrPath.delete();
+        }
+    }
 }
