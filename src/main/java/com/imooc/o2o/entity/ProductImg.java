@@ -1,7 +1,9 @@
 package com.imooc.o2o.entity;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class ProductImg {
     // 主键ID
     private Long productImgId;
