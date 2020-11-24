@@ -1,8 +1,10 @@
 package com.imooc.o2o.entity;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.util.List;
-
+@Data
 public class Product {
     // 主键ID
     private Long productId;
